@@ -1,4 +1,4 @@
-package org.sid;
+﻿package org.sid;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -122,23 +122,6 @@ public class OrderApplication implements CommandLineRunner{
 				};
 				}
 				}
-				
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			//PlanDeVol planDeVol = new PlanDeVol();
-			//planDeVol.getListeDrone(commandes);
 	}
 
 }
