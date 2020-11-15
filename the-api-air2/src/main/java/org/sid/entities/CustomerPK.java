@@ -9,6 +9,10 @@ import lombok.Data;
 @Data
 @Embeddable
 public class CustomerPK implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column
     private String idCustomerA;
     @Column
@@ -16,14 +20,12 @@ public class CustomerPK implements Serializable{
     
     
 	public CustomerPK(String idCustomerA, Long idCustomerB) {
-		super();
 		this.idCustomerA = idCustomerA;
 		this.idCustomerB = idCustomerB;
 	}
 	
 	
 	public CustomerPK() {
-		super();
 	}
 
 

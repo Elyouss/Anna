@@ -10,6 +10,10 @@ import lombok.Data;
 @Data
 @Embeddable
 public class DronePK implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column
     private String idDroneA;
     @Column
@@ -18,13 +22,11 @@ public class DronePK implements Serializable{
     
     
 	public DronePK(String idDroneA, Long idDroneB) {
-		super();
 		this.idDroneA = idDroneA;
 		this.idDroneB = idDroneB;
 	}
 	
 	public DronePK() {
-		super();
 	}
 
 	public String getIdA() {

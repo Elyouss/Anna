@@ -10,6 +10,10 @@ import lombok.Data;
 @Data
 @Embeddable
 public class CommandePK implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column
     private String idOrderA;
     @Column

@@ -51,9 +51,18 @@ public class OrderApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 		
-			Magasin magasin1 = new Magasin(new MagasinPK("LMFR-", "VA"),3,3);
-			Magasin magasin2 = new Magasin(new MagasinPK("LMFR-", "RO"),23,45);
-			Magasin magasin3 = new Magasin(new MagasinPK("LMFR-", "LE"),10,14);
+			Magasin magasin1 = new Magasin();
+			magasin1.setStoredId(new MagasinPK("LMFR-", "VA"));
+			magasin1.setxPosition(3);
+			magasin1.setyPosition(3);
+			Magasin magasin2 = new Magasin();
+			magasin2.setStoredId(new MagasinPK("LMFR-", "RO"));
+			magasin2.setxPosition(23);
+			magasin2.setyPosition(45);
+			Magasin magasin3 = new Magasin();
+			magasin3.setStoredId(new MagasinPK("LMFR-", "LE"));
+			magasin3.setxPosition(10);
+			magasin3.setyPosition(14);
 			magasinRepository.save(magasin1);
 			magasinRepository.save(magasin2);
 			magasinRepository.save(magasin3);
@@ -69,8 +78,6 @@ public class OrderApplication implements CommandLineRunner{
 			Product product1 = new Product(new ProductPK("LMFRPRD-",1L), "Shove1", map1);
 			Product product2 = new Product(new ProductPK("LMFRPRD-",2L), "Pickaxe", map2);
 			Product product3 = new Product(new ProductPK("LMFRPRD-",3L), "Rake",map3);
-			
-			
 			
 			productRepository.save(product1);
 			productRepository.save(product2);
@@ -104,7 +111,7 @@ public class OrderApplication implements CommandLineRunner{
 			droneRepository.save(drone5);
 			
 			List<Drone> drones =  new ArrayList<Drone>();
-			
+			System.out.println("Order Application "+product1.getName());
 			for( Drone drone : drones) {
 				
 				//chercher dans la liste des drones celui qui a à son compteur - 100 Km et 

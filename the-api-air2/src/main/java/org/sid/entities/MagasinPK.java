@@ -10,9 +10,9 @@ import lombok.Data;
 @Embeddable
 public class MagasinPK implements Serializable{
 		private static final long serialVersionUID = 1L;
-		@Column(name="id_stored_a",  nullable=false,unique=true)
+		//@Column(name="id_stored_a")
 	    private String idStoredA;
-	    @Column(name="id_stored_b", nullable=false ,unique=true)
+	    //@Column(name="id_stored_b")
 	    private String idStoredB;
 	    
 	    
@@ -22,7 +22,6 @@ public class MagasinPK implements Serializable{
 
 		
 		public MagasinPK(String idStoredA, String idStoredB) {
-			super();
 			this.idStoredA = idStoredA;
 			this.idStoredB = idStoredB;
 		}

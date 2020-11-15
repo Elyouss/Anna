@@ -3,31 +3,21 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
-
-import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.sid.parametre.CustomException;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@SuppressWarnings("serial")
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class Ligne implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	private Long id;
-	
+
 	private HashMap<Product, Integer> ligneCommandes;
 	
 	@ManyToOne
@@ -44,7 +34,6 @@ public class Ligne implements Serializable {
 	
 	
 	public Ligne(Long id, HashMap<Product, Integer> ligneCommandes, Commande commande) {
-		super();
 		this.id = id;
 		this.ligneCommandes = ligneCommandes;
 		this.commande = commande;
@@ -53,7 +42,6 @@ public class Ligne implements Serializable {
 
 
 	public Ligne(HashMap<Product, Integer> ligneCommandes) {
-		super();
 		this.ligneCommandes = ligneCommandes;
 	}
 

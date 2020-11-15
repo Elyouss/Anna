@@ -2,26 +2,20 @@ package org.sid.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-
-import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@SuppressWarnings("serial")
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class Commande implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@EmbeddedId
 	private CommandePK orderId;
 	

@@ -1,27 +1,20 @@
 package org.sid.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@SuppressWarnings("serial")
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class Drone implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@EmbeddedId 
 	private DronePK droneId;
 	private Integer xPosition;
@@ -37,13 +30,11 @@ public class Drone implements Serializable {
 	
 	
 	public Drone() {
-		super();
 	}
 
 	
 	
 	public Drone(DronePK droneId, Integer xPosition, Integer yPosition) {
-		super();
 		this.droneId = droneId;
 		this.xPosition = xPosition;
 		this.yPosition = yPosition;
@@ -52,7 +43,6 @@ public class Drone implements Serializable {
 
 
 	public Drone(DronePK droneId, Integer xPosition, Integer yPosition, Collection<Customer> customers, Ligne ligne) {
-		super();
 		this.droneId = droneId;
 		this.xPosition = xPosition;
 		this.yPosition = yPosition;
@@ -123,15 +113,6 @@ public class Drone implements Serializable {
 	public void setMagasin(Collection<Magasin> magasin) {
 		this.magasin = magasin;
 	}
-
 	
 
-    public List<Drone>  genererPlanDeVol (List<Commande> commandes, List<Product> products){
-    	List<Drone> drones = new ArrayList<Drone>();
-    	for(Commande commande : commandes) {
-    		System.out.println("Commande :"+commande.getOrderId()+ " client : "+commande.getCustomer()+ "produit :"+ commande.getLignes());
-    	}
-		return drones;
-	}
-	
 }

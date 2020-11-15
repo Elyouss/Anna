@@ -3,49 +3,30 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 import javax.persistence.MapKey;
-import javax.persistence.MapKeyClass;
-import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Entity
 @Table(name="product")
 public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@EmbeddedId
-	@Column(name="product_id", nullable=false,unique=true)
 	private  ProductPK productId;
 	
 	private String name;
 	
 	@OneToMany( mappedBy = "product", targetEntity = Magasin.class ) 
-	@MapKey ( name = "storedId" )
+	@MapKey ( name = "storedId")
 	private Map<Magasin, Integer> stock  = new HashMap<Magasin, Integer>();
 
 	private int quantite;
@@ -109,10 +90,15 @@ public class Product implements Serializable{
 
 
 
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", name=" + name + ", stock=" + stock + "]";
+	}
+
+
 	public ProductPK getId() {
 		return productId;
 	}
-
 
 
 

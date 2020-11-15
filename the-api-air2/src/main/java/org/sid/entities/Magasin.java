@@ -1,37 +1,17 @@
 package org.sid.entities;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapKey;
-import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class Magasin implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@EmbeddedId
-	@Column(name="stored_id",nullable=false,unique=true)
 	private MagasinPK storedId;
 	private int xPosition;
 	private int yPosition;
@@ -44,12 +24,6 @@ public class Magasin implements Serializable{
 	}
 
 	
-	public Magasin(MagasinPK storedId, int xPosition, int yPosition) {
-		System.out.println("----------CONSTRUCTEUR---------------------champ storedId"+storedId);
-		this.storedId = storedId;
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
-	}
 
 	
 
@@ -57,20 +31,6 @@ public class Magasin implements Serializable{
 		this.storedId = storedId;
 	}
 
-
-	public Magasin(MagasinPK storedId, int xPosition, int yPosition, Product product) {
-		this.storedId = storedId;
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
-		this.product = product;
-	}
-
-
-	public Magasin(int xPosition, int yPosition) {
-		this.xPosition = xPosition;
-		
-		this.yPosition = yPosition;
-	}
 
 
 	public MagasinPK getStoredId() {
